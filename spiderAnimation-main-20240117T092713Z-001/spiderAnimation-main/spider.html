@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>spider</title>
+	<style type="text/css">
+		body {
+			background: linear-gradient(120deg, red, blue) no-repeat;
+			height: 100vh;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+		}
+
+		.bg {
+			margin-left: 350px;
+			width: 400px;
+			z-index: -1;
+		}
+
+		img {
+			position: absolute;
+		}
+
+		.andrew {
+			height: 550px;
+			width: 550px;
+			margin-left: 700px;
+			margin-top: -100px;
+			animation: andrew 10s linear infinite;
+		}
+
+		.miles {
+			height: 400px;
+			width: 400px;
+			margin-left: 400px;
+			margin-top: -10px;
+			animation: miles 2s linear infinite;
+		}
+
+		.tom {
+			height: 450px;
+			width: 350px;
+			margin-left: 10px;
+			margin-top: -20px;
+			transform: rotate(25deg);
+			transform-origin: top;
+			animation: tom 6s linear infinite;
+		}
+
+		.tom-shadow {
+			position: absolute;
+			height: 5px;
+			width: 200px;
+			border-radius: 50%;
+			top: 550px;
+			bottom: 100px;
+			left: 150px;
+			box-shadow: 0px 0px 30px black;
+			background: rgba(0, 0, 0, 0.4);
+			animation: tom-shadow 6s linear infinite;
+		}
+
+		@keyframes tom {
+			0% {
+				transform: rotate(5deg);
+			}
+
+			50% {
+				transform: rotate(-5deg);
+			}
+
+			100% {
+				transform: rotate(5deg);
+			}
+		}
+
+		@keyframes miles {
+			0% {
+				margin-top: -15px;
+			}
+
+			50% {
+				margin-top: -40px;
+			}
+
+			100% {
+				margin-top: -15px;
+			}
+		}
+
+		@keyframes tom-shadow {
+			0% {
+				transform: translateX(-50px);
+			}
+
+			50% {
+				transform: translateX(40px)
+			}
+
+			100% {
+				transform: translateX(-50px)
+			}
+		}
+
+		@keyframes andrew {
+			0% {
+				margin-top: -600px;
+			}
+
+			25% {
+				margin-top: -15px;
+			}
+
+			50% {
+				margin-top: -100px;
+			}
+
+			75% {
+				margin-top: -15px;
+			}
+
+			100% {
+				margin-top: -600px;
+			}
+		}
+
+		@keyframes andrew-shadow {
+			0% {
+				transform: scale(0);
+			}
+
+			25% {
+				transform: scale(1.0);
+			}
+
+			50% {
+				transform: scale(0.5);
+			}
+
+			75% {
+				transform: scale(1.0);
+			}
+
+			85% {
+				transform: scale(0);
+			}
+
+			100% {
+				transform: scale(0)
+			}
+		}
+
+		.birthday-cake {
+			position: relative;
+			top: 500px;
+			left: 880px;
+		}
+
+		.holder {
+			position: absolute;
+			width: 350px;
+			height: 20px;
+			border-radius: 100px;
+			background-color: #212F3C;
+			left: -140px;
+			top: 10px;
+		}
+
+		.holder:before {
+			content: "";
+			position: absolute;
+			width: 100px;
+			height: 150px;
+			background-color: #CACFD2;
+			left: 130px;
+			top: 20px;
+		}
+
+
+		.shadow {
+			position: absolute;
+			width: 350px;
+			height: 20px;
+			border-radius: 50%;
+			top: 170px;
+			left: -135px;
+			background-color: rgba(0, 0, 0, 0.095);
+			z-index: 1;
+		}
+
+		.shadow:before {
+			content: "";
+			position: absolute;
+			background-color: #CACFD2;
+			width: 150px;
+			height: 20px;
+			border-radius: 20px;
+			top: -10px;
+			left: 96px;
+		}
+
+		.cake {
+			position: absolute;
+			overflow: hidden;
+			width: 275px;
+			height: 140px;
+			background-color: #FAD7A0;
+			top: -130px;
+			left: -101px;
+			border-radius: 30px 30px 0 0;
+		}
+
+		.cake:before {
+			content: "";
+			background-color: #935116;
+			width: 275px;
+			height: 15px;
+			position: absolute;
+			top: 75px;
+			box-shadow: 0 30px #935116;
+		}
+
+		.cake:after {
+			content: "";
+			position: absolute;
+			background-color: #573612;
+			width: 275px;
+			height: 40px;
+			box-shadow: inset 0 10px rgba(0, 0, 0, 0.07);
+		}
+
+		.chocolate {
+			position: absolute;
+			background-color: #573612;
+			width: 25px;
+			height: 45px;
+			top: 25px;
+			left: 0;
+			z-index: 2;
+			border-radius: 50px;
+			box-shadow: 25px 2px #FAD7A0, 50px -10px #573612, 75px -5px #FAD7A0, 100px 3px #573612, 125px 0 #FAD7A0, 150px -5px #573612, 175px 3px #FAD7A0, 200px -5px #573612, 225px -10px #FAD7A0, 250px 4px #573612;
+		}
+
+		.candle {
+			position: absolute;
+			width: 15px;
+			height: 70px;
+			background-color: white;
+			top: -200px;
+			left: 30px;
+			box-shadow: inset 0 -10px 0 #E74C3C;
+		}
+
+		.candle:before {
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			background-color: #E74C3C;
+			content: "";
+			top: 10px;
+			box-shadow: 0 25px #E74C3C;
+		}
+
+		.candle:after {
+			content: "";
+			width: 2px;
+			height: 15px;
+			content: "";
+			position: absolute;
+			background-color: black;
+			top: -15px;
+			left: 6px;
+		}
+
+		.flame {
+			position: absolute;
+			background-color: #F4D03F;
+			opacity: 0.9;
+			box-shadow: inset 0 -5px 5px #D35400, 5px -5px 20px #FBFFA3;
+			width: 20px;
+			height: 30px;
+			top: -240px;
+			border-radius: 50%;
+			left: 26.5px;
+			animation: flame 0.5s infinite;
+
+		}
+
+		#wish-container {
+			position: absolute;
+			text-align: center;
+			top: 10%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		#wish-text {
+			font-size: 24px;
+			color: #fff;
+			margin-bottom: 10px;
+		}
+
+		#countdown {
+			font-size: 36px;
+			color: #fff;
+			font-weight: bold;
+		}
+
+		@keyframes flame {
+
+			from,
+			to {
+				transform: scale(1, 1);
+			}
+
+			25% {
+				transform: scale(0.9, 1.1);
+			}
+
+			50% {
+				transform: scale(1.1, 0.9);
+			}
+
+			75% {
+				transform: scale(0.95, 1.05);
+			}
+		}
+
+		#pop-up-card {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 20px;
+			max-width: 400px;
+			background-color: #292929;
+			color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			z-index: 2;
+		}
+
+		#pop-up-card h2 {
+			font-size: 24px;
+			color: #ff5733;
+			/* Spider theme color */
+		}
+
+		#pop-up-card p {
+			font-size: 16px;
+			line-height: 1.6;
+		}
+
+		#pop-up-card .signature {
+			margin-top: 20px;
+			font-size: 14px;
+			font-style: italic;
+		}
+
+		#wish-container.fade-out {
+			animation: fadeOut 1s forwards;
+		}
+
+		@keyframes fadeOut {
+			to {
+				opacity: 0;
+			}
+		}
+
+
+		@keyframes cakeAnimation {
+			0% {
+				transform: translateY(-50%) rotate(20deg);
+				opacity: 0;
+				filter: blur(10px);
+			}
+
+			50% {
+				transform: translateY(0) rotate(0deg);
+				opacity: 0.7;
+				filter: blur(5px);
+			}
+
+			100% {
+				transform: translateY(0) rotate(0deg);
+				opacity: 1;
+				filter: blur(0);
+			}
+		}
+
+		.holder,
+		.shadow,
+		.cake,
+		.chocolate,
+		.shadow:before,
+		.holder:before,
+		.holder:after,
+		.candle,
+		#countdown,
+		#wish-text,
+		.flame {
+			animation: cakeAnimation 3s ease-in-out;
+			animation-fill-mode: both;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="bg"></div>
+	<figure>
+		<img src="miles.png" class="miles">
+		<div class="miles-shadow"></div>
+		<img src="tom.png" class="tom">
+		<div class="tom-shadow"></div>
+		<div class="birthday-cake">
+			<div class="holder"></div>
+			<div class="shadow"></div>
+			<div class="cake">
+				<div class="chocolate"></div>
+			</div>
+			<div class="candle"></div>
+			<div class="flame"></div>
+		</div>
+
+		<div id="wish-container">
+			<p id="wish-text">Make a Wish</p>
+			<p id="countdown">30</p>
+		</div>
+
+		<div id="pop-up-card">
+			<h2>To the loml,</h2>
+			<p>
+				Wow! Happy Spidey day!!! First birthday mo with me? I still can't believe. I just want to say thank you
+				for being here, for existing. Despite everything na napagdaanan mo before here you are slaying. You are
+				so brave, and you deserve everything in this world. I'm sorry if eto lang nakayanan ko for now, pero
+				when we see each other, babawi ako sayo. I'm so thankful for your existence. I'm thankful na you're part
+				of my life, and I can't wait to go on more adventures with you in the future. Katulad ng palagi kong
+				sinasabi, nandito lang me palagi. Di ako titigil mag support sa lahat ng gusto mong gawin, and we're
+				just so so sooo proud of you. Just know na you always have me. When you feel like you don't have
+				anyone to lean on, you will always have me. May God give you more patience sa kakulitan ko heh. Always
+				be safe and healthy for me, okay? I wish you nothing but safety, good health, strength, and peace of
+				mind. Thank you for being here in this world and for everything that you do. You matter. Happy 26th, my
+				baby. I love you 3000!
+			</p>
+			<p class="signature">Love, AJ</p>
+		</div>
+
+		<img src="spiderr.png" class="bg">
+	</figure>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Get the countdown element and wish text element
+			var countdownElement = document.getElementById("countdown");
+			var wishTextElement = document.getElementById("wish-text");
+
+			// Set the initial countdown value
+			var countdownValue = 30;
+			countdownElement.innerText = countdownValue;
+
+			// Set interval to update countdown every second
+			var countdownInterval = setInterval(function () {
+				countdownValue--;
+				countdownElement.innerText = countdownValue;
+
+				// Check if the remaining seconds are 5
+				if (countdownValue === 5) {
+					wishTextElement.innerText = "Blow a Candle";
+				}
+
+				// Check if the countdown reaches 0
+				if (countdownValue === 0) {
+					clearInterval(countdownInterval);
+					wishTextElement.innerText = "Time's up!";
+
+					// Fade out the cake and countdown text
+					var wishContainer = document.getElementById("wish-container");
+					wishContainer.classList.add("fade-out");
+
+					// Show the pop-up card after a delay
+					setTimeout(function () {
+						var popUpCard = document.getElementById("pop-up-card");
+						popUpCard.style.display = "block";
+					}, 1000); // Adjust the delay time as needed
+				}
+			}, 1000);
+		});
+
+
+	</script>
+</body>
+
+</html>
